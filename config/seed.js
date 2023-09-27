@@ -24,5 +24,5 @@ const characters = [
     { name: "Jiren", picture: "jiren.jpg" }
 ];
 
-
+module.exports = characters
 console.log(characters);
