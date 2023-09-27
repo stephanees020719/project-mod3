@@ -28,6 +28,11 @@ app.get('/api/test', (req, res) => {
   res.send('You just hit a API route');
 });
 
+
+const characterRouter = require('./routes/api/characters.cjs'); //to see the route/characters 
+app.use('/api/characters', characterRouter);
+
+
 const userRouter = require('./routes/api/users.cjs');
 //Router setup
 // If the request starts with /api/users/ it directs the request to the userRouter (ln. 28)
