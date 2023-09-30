@@ -1,5 +1,7 @@
 require('dotenv').config();
 require('./database.cjs');
+// const Characters = require('../modules/character.cjs')//added trying to display my data 
+
 
 const characters = [
     { name: "Goku", picture: "goku.jpg" },

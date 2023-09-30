@@ -18,6 +18,7 @@ function NavBar(props) {
       &nbsp; | {" "}
       <Link to="/characters/new">New Character</Link>
       <br />
+    
       <Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   )
