@@ -4,7 +4,7 @@
 
 
 
-(##[Introduction]):
+#[Introduction]:
 This is my project for perscholas module 3. It's an  application that allows users to create, edit, delete and view characters from the Dragon Ball Z series. Users can sign up, log in, and manage their characters. 
 
 (##[Technologies-Used]):
