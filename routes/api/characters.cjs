@@ -1,7 +1,7 @@
 // routes/api/characters.js
 const express = require('express');
 const router = express.Router();
-const Character = require('../../models/character.cjs'); // Create a character model if not already done
+const Character = require('../../models/character.cjs'); 
 
 // Create a new character
 router.post('/', async (req, res) => {
