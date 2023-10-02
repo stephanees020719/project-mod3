@@ -33,7 +33,7 @@ Testing: Writing tests for my server and client code to ensure reliability.
 (#[WiredFrame]):
 ![Alt text](wireframe.png)
 
-(#[Entity-Relationship-Diagram])
+(# [Entity-Relationship-Diagram])
 
 ![Alt text](Relationship.png)
 
