@@ -1,17 +1,27 @@
 
+//src/components/CharacterList/CharacterList.jsx
+//import my modules 
 import React, { useState, useEffect } from 'react';
 
+
+//function 
 function CharacterList({ user }) {
+//declare my state variable and initialized as empty array
   const [characters, setCharacters] = useState([]);
+ // declare state variable initialized as null
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [editedCharacter, setEditedCharacter] = useState({
-    name: '', 
+    name: '', // Initialize with empty values
     picture: '', 
+    comment: '',
   });
 
   useEffect(() => {
+    //async  function
     const fetchCharacters = async () => {
       try {
+        //try fetch data from my API endpoint
+        //send http get request 
         const response = await fetch('/api/characters');
         if (response.ok) {
           const data = await response.json();
@@ -23,9 +33,10 @@ function CharacterList({ user }) {
         console.error('Error fetching characters', error);
       }
     };
+  
 
-    fetchCharacters();
-  }, []);
+    fetchCharacters(); //call the function to initiate to fecth my data 
+  }, []);// this effect runs only once when the component is mounted
 
   const handleEditCharacter = (characterId) => {
     // Redirect to the edit character page, passing the character ID
@@ -39,7 +50,7 @@ function CharacterList({ user }) {
       });
 
       if (response.ok) {
-        // Character deleted successfully, update the list of characters
+        // character deleted successfully, update the list of characters
         const updatedCharacters = characters.filter(
           (character) => character._id !== characterId
         );
@@ -51,12 +62,13 @@ function CharacterList({ user }) {
       console.error('Error deleting character', error);
     }
   };
-
+//function to edit take character as parameter 
   const handleEditClick = (character) => {
     setSelectedCharacter(character);
     setEditedCharacter({
       name: character.name,
       picture: character.picture,
+      comment: character.comment,
     });
   };
 
@@ -76,8 +88,8 @@ function CharacterList({ user }) {
       });
 
       if (response.ok) {
-        // Character updated successfully
-        // Close the edit form and update the character list
+        // character updated successfully
+
         setSelectedCharacter(null);
         const updatedCharacters = characters.map((character) => {
           if (character._id === selectedCharacter._id) {
@@ -85,6 +97,7 @@ function CharacterList({ user }) {
               ...character,
               name: editedCharacter.name,
               picture: editedCharacter.picture,
+              comment: editedCharacter.comment 
             };
           }
           return character;
@@ -99,7 +112,7 @@ function CharacterList({ user }) {
   };
 
   const handleCancelClick = () => {
-   
+    // Close the edit form without saving changes
     setSelectedCharacter(null);
   };
 
@@ -107,6 +120,8 @@ function CharacterList({ user }) {
     <div>
       <h2>Dragon Ball Z Characters</h2>
       <ul>
+
+      {/* //map though my characters array  */}
         {characters.map((character) => (
           <CharacterItem
             key={character._id}
@@ -134,6 +149,13 @@ function CharacterList({ user }) {
             value={editedCharacter.picture}
             onChange={handleInputChange}
           />
+          <label>Comment:</label>
+          <input
+            type="text"
+            name="comment"
+            value={editedCharacter.comment}
+            onChange={handleInputChange}
+            />
           <button onClick={handleEditSave}>Save</button>
           <button onClick={handleCancelClick}>Cancel</button>
         </div>
@@ -145,11 +167,13 @@ function CharacterList({ user }) {
 function CharacterItem({ character, user, onEditCharacter, onDeleteCharacter }) {
   return (
     <li key={character._id}>
-      <img src={character.picture} alt={character.name} />
-      {character.name}
+      <img src={character.picture} alt={character.name} /><br />
+      Name: {character.name}{' '}<br />
+      Comment: {character.comment}
       {user && (
+        //edit delete button
         <div>
-          <button onClick={() => onEditCharacter(character)}>Edit</button>
+        <button onClick={() => onEditCharacter(character)}>Edit</button>
           <button onClick={() => onDeleteCharacter(character._id)}>Delete</button>
         </div>
       )}

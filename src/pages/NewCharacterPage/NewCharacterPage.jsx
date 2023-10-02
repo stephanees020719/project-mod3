@@ -1,11 +1,17 @@
-
+// src/pages/NewCharacterPage/NewCharacterPage.jsx
 import React, { useState, useEffect } from 'react';
+import './NewCharacterPage.css'; 
+
 
 function NewCharacterPage() {
-  const [newCharacter, setNewCharacter] = useState({ name: '', picture: '' });
+  const [newCharacter, setNewCharacter] = useState({ name: '', picture: '', comment: '' });
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
 
+  
+  // const [characterList, setCharacterList] = useState(characters);
+  
+  
   useEffect(() => {
     // Fetch characters data from the API endpoint
     fetch('/api/characters')
@@ -13,7 +19,8 @@ function NewCharacterPage() {
       .then((data) => setCharacters(data))
       .catch((error) => console.error('Error fetching characters', error));
   }, []);
-
+ 
+  //include a random character  
   const selectRandomCharacter = () => {
     const randomIndex = Math.floor(Math.random() * characters.length);
     const randomCharacter = characters[randomIndex];
@@ -37,7 +44,7 @@ function NewCharacterPage() {
         // Character created successfully, update the list of characters
         const characterData = await response.json();
         setCharacters([...characters, characterData]);
-        setNewCharacter({ name: '', picture: '' });
+        setNewCharacter({ name: '', picture: '', comment: '' });
       } else {
         console.error('Failed to create character');
       }
@@ -52,7 +59,7 @@ function NewCharacterPage() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Character Name"
+          placeholder="Character"
           value={newCharacter.name}
           onChange={(e) => setNewCharacter({ ...newCharacter, name: e.target.value })}
         />
@@ -62,15 +69,24 @@ function NewCharacterPage() {
           value={newCharacter.picture}
           onChange={(e) => setNewCharacter({ ...newCharacter, picture: e.target.value })}
         />
+           <input
+          type="text"
+          placeholder="Comment"
+          value={newCharacter.comment}
+          onChange={(e) => setNewCharacter({ ...newCharacter, comment: e.target.value })}
+        />
         <button type="submit">Create Character</button>
       </form>
+      {/* ramdon character button */}
       <button onClick={selectRandomCharacter}>Random Character</button>
       {selectedCharacter && (
         <div>
           <h2>Your character of the day</h2>
-          <p>Today your Strench is level: {selectedCharacter.name}</p>
+          <h3>If you can't find that bug  {selectedCharacter.name} says:{' '}
+          {selectedCharacter.comment}</h3>
           <img src={selectedCharacter.picture} alt={selectedCharacter.name} />
         </div>
+       
       )}
      
     </div>
@@ -78,3 +94,6 @@ function NewCharacterPage() {
 }
 
 export default NewCharacterPage;
+
+
+

@@ -1,4 +1,6 @@
 // models/character.cjs
+
+
 const { Schema, model } = require('mongoose');
 
 const characterSchema = new Schema(
@@ -8,8 +10,13 @@ const characterSchema = new Schema(
       required: true },
     
       picture: { 
-      type: String, 
+      type: String,  
       required: true },
+
+      comment:{
+        type: String,
+        required: false },
+      
   },
   { timestamps: true }
 );

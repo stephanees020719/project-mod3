@@ -1,10 +1,12 @@
-
+//src/CharacterHistoryPage/CharacterHistoryPage.jsx
 import React, { useState, useEffect } from 'react';
 import CharacterList from '../../components/CharacterList/CharacterList';
 
+
+import './CharacterHistoryPage.css';
  
 function CharacterHistoryPage() {
-  // State to store the user's characters
+  // state to store the user's characters
   const [userCharacters, setUserCharacters] = useState([]);
   const user = {}; 
 
@@ -26,7 +28,7 @@ function CharacterHistoryPage() {
     <div>
       <h1>Your Dragon Ball Z Characters</h1>
       {/* Pass the user's characters to the CharacterList component */}
-      <CharacterList characters={userCharacters} user={user} />
+     <h3> <CharacterList characters={userCharacters} user={user} /></h3>
     </div>
   );
 }
