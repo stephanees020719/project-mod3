@@ -45,14 +45,25 @@ function NewCharacterPage() {
         const characterData = await response.json();
         setCharacters([...characters, characterData]);
         setNewCharacter({ name: '', picture: '', comment: '' });
+  //     } else {
+  //       console.error('Failed to create character');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error creating character', error);
+  //   }
+  // };
+  alert('Character created successfully'); 
       } else {
         console.error('Failed to create character');
+  
+        alert('Failed to create character'); 
       }
     } catch (error) {
       console.error('Error creating character', error);
+      // error message
+      alert('Error creating character'); 
     }
   };
-
   return (
     <div>
       <h1>Create Your Dragon Ball Z Character </h1>
