@@ -4,10 +4,10 @@
 
 
 
-#[Introduction]:
+#Introduction:
 This is my project for perscholas module 3. It's an  application that allows users to create, edit, delete and view characters from the Dragon Ball Z series. Users can sign up, log in, and manage their characters. 
 
-(##[Technologies-Used]):
+[Technologies-Used]:
 Node.js
 Express.js
 MongoDB/mongoose
@@ -35,7 +35,7 @@ Testing: Writing tests for my server and client code to ensure reliability.
 
 (#[Entity-Relationship-Diagram])
 
-![Alt text](relationship.png)
+![Alt text](Relationship.png)
 
 (##[Credits]):
 Pictures: The images used in this project were sourced from various locations on the web
