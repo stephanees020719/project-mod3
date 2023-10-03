@@ -41,3 +41,11 @@ Testing: Writing tests for my server and client code to ensure reliability.
 Pictures: The images used in this project were sourced from various locations on the web
 
 Mern-infrastructure: The back bone of this project was provived by my instructors Joshua Miller and Christina Takara
+
+
+## Thank you:
+I wanted to express my sincere appreciation for the invaluable opportunity I have been granted through Per Scholas. It has been an enriching experience that has opened doors to a world of possibilities for me.
+
+I would like to extend my heartfelt thanks to my dedicated teachers, Mr. Joshua Miller and Ms. Christina Takara. Their unwavering patience, expertise, and commitment to teaching coding have been instrumental in my growth and development.
+
+I am truly grateful for the support and encouragement I have received of all my classmates specially Robert Davis, Bryan Santos Andrew Doak, and Kathy saung. 
