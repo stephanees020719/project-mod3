@@ -21,8 +21,9 @@ HTML/CSS.
 You can start the server by running npm run dev
 
 
-## Future-Enhancements:
+## Future Improvements:
 User profiles: Allowing users to add more information about themselves.
+Add more style: Style the webpage so the user can feel is going thru a manga comic book.
 Character images: Allowing users to upload or select character images for their profile.
 Search and filter: Implementing search and filter options to find characters easily.
 Social features: Adding the ability to share characters or follow other users.
